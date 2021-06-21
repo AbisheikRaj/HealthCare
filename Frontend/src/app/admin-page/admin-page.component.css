@@ -1,0 +1,18 @@
+.nav__bar__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.admin__body {
+    margin-top: 20px;
+}
+
+button {
+    color: dodgerblue;
+    background-color: white;
+    border: 1px solid dodgerblue;
+    border-radius: 2px;
+    margin: 20px;
+}

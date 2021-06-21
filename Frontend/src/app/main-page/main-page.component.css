@@ -1,0 +1,48 @@
+.nav__bar__head {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__page__body {
+    margin: 30px;
+    position: relative;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button__operation {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+button {
+    color: dodgerblue;
+    background-color: white;
+    border: 1px solid dodgerblue;
+    border-radius: 2px;
+    margin: 20px;
+}
+
+.notify_message {
+    display: flex;
+    justify-content: center;
+
+}
+
+.alert {
+    margin-bottom: 0px;
+}
+
+.message {
+    height: 50px;
+}
+
+.card {
+    margin: 40px;
+}

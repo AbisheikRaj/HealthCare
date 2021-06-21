@@ -1,0 +1,10 @@
+.nav__bar__head {
+    padding: 40px;
+}
+
+.doctor-page-body {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 60px;
+}

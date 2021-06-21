@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+    <body>
+        <app-navbar></app-navbar>
+        <div class = "alert_notification">
+            <div *ngIf = "this.message === 'failure'">
+                <div class="alert alert-danger" role="alert">
+                    <b>Invalid Credential</b>
+                </div>
+            </div>
+        </div>
+
+        <div class = "doctor__login__body" autocomplete = "off">
+            <div class = "doctor__login__body__card">
+                <div class = "doctor__login__form">
+                    <form [formGroup] = "doctor_login_form" autocomplete="off" (submit) = "doctor_login_form_submit()">
+                        <div class = "doctor__login__form__heading">
+                            <h1>Doctor Login</h1>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="username" class="form-label" autocomplete="off"><b>Username</b></label>
+                            <input type="text" class="form-control" id="username" formControlName = "username" placeholder="Enter Username">
+                            <div *ngIf = "controls.username.touched && controls.username.invalid" class="alert alert-danger">
+                                <div *ngIf = "controls.username.errors?.required">Username is Required</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><b>Password</b></label>
+                            <input type="password" class="form-control" id="password" formControlName = "password" placeholder="Enter Password">
+                            <div *ngIf = "controls.password.touched && controls.password.invalid" class="alert alert-danger">
+                                <div *ngIf = "controls.password.errors?.required">Password is Required</div>
+                            </div>
+                        </div>
+                        
+                        <div class = "doctor__login__button">   
+                            <button type="submit" class="btn btn-primary" [disabled] = "doctor_login_form.invalid"><b>Login</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

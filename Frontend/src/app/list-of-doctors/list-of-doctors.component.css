@@ -1,0 +1,50 @@
+.list_of_doctors_body {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.card-title {
+    margin-bottom: 1.5rem;
+}
+
+
+.button__operation {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    max-width: 320px;
+    margin: 20px;
+}
+
+.edit__doctor__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_body_edit {
+    width: 250px;
+}
+
+.card_body_edit > form > label{
+    padding: 10px;
+}
+
+.card_body_edit > form > input{
+    margin-left: 10px;
+}
+
+.edit_button_operation {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}

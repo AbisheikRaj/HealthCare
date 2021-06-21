@@ -1,0 +1,35 @@
+.nav__bar__head {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.btn.btn-light {
+    background-color: rgb(247, 112, 135);    
+    font-weight: bold;
+}
+
+.nav__bar__head {
+    display: flex;
+    justify-content: space-between;
+}
+.nav__bar__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+}
+
+.nav__bar__button > div >  a {
+    text-decoration: none;
+    color: rgb(247, 112, 135);
+    font-weight: bold;
+    font-size: 20px;
+    transition: all .2s; 
+}
+
+.nav__bar__button > div >  a:hover {
+    border-bottom: 3px solid dodgerblue;
+    transform: scale(1.2);
+    font-size: 23px;
+}

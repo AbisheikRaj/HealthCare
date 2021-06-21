@@ -1,0 +1,52 @@
+.card-title {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+.add__doctors__card {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.add__doctor__button {
+    display: flex;
+    justify-content: center;
+}
+
+.btn.btn-primary {
+    background-color: dodgerblue;
+}
+
+.form-control:focus {
+    border-color: rgb(247, 112, 135);
+    box-shadow: -4px -3px 0 0.2rem rgb(247, 112, 135);
+}
+
+.form-control {
+    font-weight: bold;
+}
+
+.form-floating.mb-3 {
+    margin: 30px;
+}
+
+span {
+    font-weight: bold;
+    color: red;
+}
+
+.add_doctors_notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position : relative;
+    top : 60px;
+}

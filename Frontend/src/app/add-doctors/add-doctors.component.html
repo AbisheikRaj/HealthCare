@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class = "add_doctors_notification">
+            <div *ngIf = "message === 'success'">
+                <div class="alert alert-success" role="alert">
+                    <b>Details are stored successfully</b>
+                </div>
+            </div>
+            <div *ngIf = "message === 'failure'">
+                <div class="alert alert-danger" role="alert">
+                    <b>Data Already Existed</b>
+                </div>
+            </div>
+        </div>
+
+        <div class = "add__doctors__card">
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Add Doctors</h5>
+                    <div>
+                        <form [formGroup] = "add_doctors_form" autocomplete = "off" (submit) = "add_doctors()">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control"  autocomplete = "off" formControlName = "name" id="floatingInput" placeholder="Name">
+                                <label for="floatingInput">Doctor Name</label>
+                                <div *ngIf = "controls.name.touched && controls.name.invalid">
+                                    <span *ngIf = "controls.name.errors?.required">Required</span>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" autocomplete = "off" formControlName = "email" placeholder="Email">
+                                <label for="floatingInput">Email address</label>
+                                <div *ngIf = "controls.email.touched && controls.email.invalid">
+                                    <span *ngIf = "controls.email.errors?.required">Required</span>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" autocomplete = "off" formControlName = "hospital" placeholder="Hospital">
+                                <label for="floatingInput">Hospital</label>
+                                <div *ngIf = "controls.hospital.touched && controls.hospital.invalid">
+                                    <span *ngIf = "controls.hospital.errors?.required">Required</span>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" autocomplete = "off" formControlName = "mobile_number" placeholder="Mobile Number">
+                                <label for="floatingInput">Mobile Number</label>
+                                <div *ngIf = "controls.mobile_number.touched && controls.mobile_number.invalid">
+                                    <span *ngIf = "controls.mobile_number.errors?.required">Required</span>
+                                    <span *ngIf = "controls.mobile_number.errors?.pattern">Invalid</span>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" autocomplete = "off" formControlName = "shift_time" placeholder="Shift Time">
+                                <label for="floatingInput">Shift Time</label>
+                                <div *ngIf = "controls.shift_time.touched && controls.shift_time.invalid">
+                                    <span *ngIf = "controls.shift_time.errors?.required">Required</span>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingInput" autocomplete = "off" formControlName = "password" placeholder="Password">
+                                <label for="floatingInput">Password</label>
+                                <div *ngIf = "controls.password.touched && controls.password.invalid">
+                                    <span *ngIf = "controls.password.errors?.required">Required</span>
+                                </div>
+                            </div>
+                            <div class = "add__doctor__button">
+                                <button type = "submit" class = "btn btn-primary" [disabled] = !this.add_doctors_form.valid>Add Doctors</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

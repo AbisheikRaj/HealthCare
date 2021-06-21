@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "nav__bar__head">
+        <h3><b style = "padding: 5px;background-color: dodgerblue; color: white;">Health</b><b style="padding: 5px;background-color: rgb(247, 112, 135); color: white;">Care</b></h3>
+        <button (click) = "logout()">Logout</button>
+    </div>
+
+    <div class = "admin__body">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <button type="button"><a class="nav-link" href="/admin_page/list_of_doctors">List of Doctors</a></button>
+            </li>
+            <li class="nav-item">
+                <button type="button"><a class="nav-link active" aria-current="page" href="/admin_page/add_doctors">Add Doctors</a></button>
+            </li>
+            <!-- <li class="nav-item">
+                <button type="button"><a class="nav-link" href="/admin_page/available_doctors">Available Doctors</a></button>
+            </li> -->
+        </ul>
+        <router-outlet></router-outlet>
+    </div>
+</body>
+</html>

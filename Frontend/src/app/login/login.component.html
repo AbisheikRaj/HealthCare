@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div class = "alert_notification">
+        <div *ngIf = "message">
+            <div class="alert alert-danger" role="alert">
+                <b>{{message}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class = "login__body" autocomplete = "off">
+        <div class = "login__body__card">
+            <div class = "login__form">
+                <form [formGroup] = "login_form" autocomplete="off" (submit) = "login_form_submit()">
+                    <div class = "login__form__heading">
+                        <h1>Login</h1>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label" autocomplete="off"><b>Email address</b></label>
+                        <input type="email" class="form-control" id="email" formControlName = "email" placeholder="Enter Email">
+                        <div *ngIf = "controls.email.touched && controls.email.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.email.errors?.required">Email is Required</div>
+                            <div *ngIf = "controls.email.errors?.email">Email is Invalid</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label"><b>Password</b></label>
+                        <input type="password" class="form-control" id="password" formControlName = "password" placeholder="Enter Password">
+                        <div *ngIf = "controls.password.touched && controls.password.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.password.errors?.required">Password is Required</div>
+                        </div>
+                    </div>
+                    
+                    <div class = "login__button">   
+                        <button type="submit" class="btn btn-primary" [disabled] = "login_form.invalid"><b>Login</b></button>
+                        <div>
+                            <a href = "/register">Create an Account</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

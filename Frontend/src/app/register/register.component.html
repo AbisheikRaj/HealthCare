@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div class = 'notification__message'>
+        <div *ngIf = "message_details === 'success'">
+            <div class="alert alert-success" role="alert">
+                <b>Details are stored successfully</b>
+            </div>
+        </div>
+        <div *ngIf = "message_details === 'failure'">
+            <div class="alert alert-danger" role="alert">
+                <b>Email ID already exist</b>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class = "register__body" autocomplete = "off">
+        <div class = "register__body__card">
+            <div class = "register__form">
+                <form [formGroup] = "register_form" autocomplete="off" (submit) = "register_form_submit()">
+                    <div class = "register__form__heading">
+                        <h1>Register</h1>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label" autocomplete="off"><b>Name</b></label>
+                        <input type="text" class="form-control" id="name" formControlName = "name" placeholder="Enter Name">
+                        <div *ngIf = "controls.name.touched && controls.name.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.name.errors?.required">Name is Required</div>
+                            <div *ngIf = "controls.name.errors?.pattern">Invalid Name</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="age" class="form-label" autocomplete="off"><b>Age</b></label>
+                        <input type="text" class="form-control" id="age" formControlName = "age" placeholder="Enter Age">
+                        <div *ngIf = "controls.age.touched && controls.age.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.age.errors?.required">Age is Required</div>
+                            <div *ngIf = "controls.age.errors?.pattern">Invalid Age</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="gender" class="form-label"><b>Gender</b></label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="gender" id="gender" value="Male">
+                            <label class="form-check-label" for="gender">
+                            Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="gender" id="gender" value="Female">
+                            <label class="form-check-label" for="gender">
+                            Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label" autocomplete="off"><b>Email address</b></label>
+                        <input type="email" class="form-control" id="email" formControlName = "email" placeholder="Enter Email">
+                        <div *ngIf = "controls.email.touched && controls.email.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.email.errors?.required">Email is Required</div>
+                            <div *ngIf = "controls.email.errors?.email">Email is Invalid</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label"><b>Password</b></label>
+                        <input type="password" class="form-control" id="password" formControlName = "password" placeholder="Enter Password">
+                        <div *ngIf = "controls.password.touched && controls.password.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.password.errors?.required">Password is Required</div>
+                            <div *ngIf = "controls.password.errors?.minlength">Password must be more than 6 characters</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label"><b>Confirm Password</b></label>
+                        <input type="password" class="form-control" id="confirm_password" formControlName = "confirm_password" placeholder="Enter Confirm Password">
+                        <div *ngIf = "controls.confirm_password.touched && controls.confirm_password.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.confirm_password.errors?.required">Confirm Password is Required</div>
+                            <div *ngIf = "controls.confirm_password.errors?.minlength">Confirm Password must be more than 6 characters</div>
+                            <div *ngIf = "controls.confirm_password.errors?.mustMatch">Password does not match</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address" class="form-label" autocomplete="off"><b>Address</b></label>
+                        <input type="text" class="form-control" id="address" formControlName = "address" placeholder="Enter Address">
+                        <div *ngIf = "controls.address.touched && controls.address.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.address.errors?.required">Address is Required</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mobile_number" class="form-label" autocomplete="off"><b>Mobile Number</b></label>
+                        <input type="text" class="form-control" id="mobile_number" formControlName = "mobile_number" placeholder="Enter Mobile Number">
+                        <div *ngIf = "controls.mobile_number.touched && controls.mobile_number.invalid" class="alert alert-danger">
+                            <div *ngIf = "controls.mobile_number.errors?.required">Mobile Number is Required</div>
+                            <div *ngIf = "controls.mobile_number.errors?.pattern">Mobile Number is Invalid</div>
+                        </div>
+                    </div>
+
+                    <div class = "register__button">   
+                        <button type="submit" class="btn btn-primary" [disabled] = "register_form.invalid"><b>Register</b></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

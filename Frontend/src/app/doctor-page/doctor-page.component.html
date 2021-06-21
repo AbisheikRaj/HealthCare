@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "nav__bar__head">
+        <div><h3><b style = "padding: 5px;background-color: dodgerblue; color: white;">Health</b><b style="padding: 5px;background-color: rgb(247, 112, 135); color: white;">Care</b></h3></div>
+    </div>
+
+    <div class = "doctor-page-body">
+        <div *ngFor = "let patient of patient_history">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{patient.patient_name}}</h5>
+                    <p class="card-text">Age : {{patient.patient_age}}</p>
+                    <p class="card-text">Gender : {{patient.patient_gender}}</p>
+                    <p class="card-text">Mobile Number : {{patient.patient_mobile_no}}</p>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#shiftallocation" (click) = "admin()">Admit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Modal -->
+    <div class="modal fade" id="shiftallocation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Admit Patient</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form autocomplete="off">
+                    <input type = "date" class="form-control" name = "date_of_visit" [(ngModel)] = "date_of_visit" placeholder="Choose Date"/>
+                    <input type = "text" class="form-control" name = "shift_time" autocomplete="off" [(ngModel)] = "shift_time" placeholder="Enter shift time"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click) = "accept_admit()">Confirm</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

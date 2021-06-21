@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div *ngIf = "this.error_message_server">
+        <b>Error Occurred in edit operation</b>
+    </div>
+    <div *ngIf = "this.notify === 'failure'">
+        <b>Error Occurred</b>
+    </div>
+    <div *ngIf = "this.message === 'empty'">
+        <b>No data are available</b>
+    </div>
+    <div *ngIf = "this.message === 'loading'">
+        <b>Loading...</b>
+    </div>
+
+    <div *ngIf = "this.message === 'doctors'">
+        <div class = "list_of_doctors_body">
+            <div *ngFor = "let doctor of list_of_doctors">
+                <div class="card">
+                    <h5 class="card-header">{{doctor.doctor_name}}</h5>
+                    <div *ngIf = "this.edit_email !== doctor.email" class="card-body">
+                        <h5 class="card-title">{{doctor.hospital}}</h5>
+                        <p class="card-text">Mobile No : {{doctor.mobile_number}}</p>
+                        <p class="card-text">Gmail : {{doctor.email}} <b>[Note : cannot be changed]</b></p> 
+                        <p class="card-text">Shift Time : {{doctor.shift_time}}</p>
+                        <div class = "button__operation">
+                            <button class="btn btn-success" (click) = "show_edit(doctor.email)">Edit Doctor</button>
+                            <button class="btn btn-danger" style = "margin-left: 20px;" (click) = "remove_doctor(doctor.email)">Remove Doctor</button>
+                        </div>
+                    </div>
+                    <div *ngIf = "this.edit_email === doctor.email" >
+                        <div class = "card_body_edit">
+                            <form (submit) = "edit_doctor_details()">
+                                <label>Name</label><br>
+                                <input type = "text" name = "doctor_name" [(ngModel)] = "doctor_name" value = {{doctor.doctor_name}} placeholder = {{doctor.doctor_name}} /><br>
+                                <label>Hospital</label><br>
+                                <input type = "text" value = {{doctor.hospital}} [(ngModel)] = "hospital" name = "hospital" placeholder = {{doctor.hospital}}/><br>
+                                <label>Mobile Number</label><br>
+                                <input type = "text" value = {{doctor.mobile_number}} [(ngModel)] = "mobile_number" name = "mobile_number" placeholder = {{doctor.mobile_number}}/><br>
+                                <label>Shift Time</label><br>
+                                <input type = "text" value = {{doctor.shift_time}} [(ngModel)] = "shift_time"  name ="shift_time" placeholder = {{doctor.shift_time}}/><br>
+                                <div class = "edit_button_operation">
+                                    <button class = "btn btn-success" (click) = "edit_doctor_details()">Edit</button>
+                                    <button class="btn btn-secondary" (click) = "close()">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

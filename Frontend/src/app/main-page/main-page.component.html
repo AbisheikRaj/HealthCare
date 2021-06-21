@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class = "nav__bar__head">
+        <div><h3><b style = "padding: 5px;background-color: dodgerblue; color: white;">Health</b><b style="padding: 5px;background-color: rgb(247, 112, 135); color: white;">Care</b></h3></div>
+        <div>
+            <button (click) = "logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class = "message"> 
+        <div class = "notify_message" *ngIf = "notify_message === 'success'">
+            <div class="alert alert-success" role="alert">
+                <b>Your appointment details sent to doctor. Please be patient until he appoints you!!</b>
+            </div>
+        </div>
+    </div>
+
+    <div class = "main__page__body">
+        <div *ngFor = "let doctor of list_of_doctors">
+            <div class="card">
+                <h5 class="card-header">{{doctor.doctor_name}}</h5>
+                <div class="card-body">
+                    <div>
+                        <h5 class="card-title">{{doctor.hospital}}</h5>
+                        <p class="card-text">Mobile No : {{doctor.mobile_number}}</p>
+                        <p class="card-text">Gmail : {{doctor.email}}</p> 
+                        <p class="card-text">Shift Time : {{doctor.shift_time}}</p>
+                    </div>
+                    <div class = "button__operation">
+                        <button class = "btn btn-primary" style="margin-bottom: 20px;" (click) = "appointment(doctor.email)">Appointment</button>
+                        <button class = "btn btn-primary">View Status</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
